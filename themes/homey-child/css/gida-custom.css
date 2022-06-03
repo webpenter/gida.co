@@ -1,13 +1,17 @@
+.airbnb-main-container {
+    position: relative;
+}
+
 .airbnb-container {
     width: 400px;
     height: 50px; 
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border-radius: 50px;
     display: flex;
     align-items: center;
     position: relative;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto;
 }
 
 .airbnb-container .airbnb-button-group-container {
@@ -53,4 +57,86 @@
     display: flex !important;
     justify-content: center;
     align-items: center;
+}
+
+.search-fields {
+    background-color: #fff;
+    width: 80%;
+    height: 70px;
+    /* padding: 8px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: .5px solid grey;
+    margin: 0 auto;
+}
+
+.search-fields:active {
+    transition: ease 2s;
+}
+
+.search-fields .search-destination {
+    min-width: 300px !important;
+}
+
+.search-fields .search-destination button {
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.search-fields .search-destination button,
+.search-fields .search-date-range input,
+.search-fields .search-guests input,
+.search-fields .search-filters button {
+    height: 68px !important;
+    /* border-radius: 50px; */
+    background-color: white;
+    border-width: 0;
+    border-left: .5px solid lightgray;
+    transition: ease .2s;
+}
+
+.search-fields .search-destination button:hover,
+.search-fields .search-date-range input:hover,
+.search-fields .search-guests input:hover,
+.search-fields .search-filters button:hover {
+    background-color: #eee;
+    border-radius: 50px;
+    border-left: 0px solid lightgray;
+}
+
+.search-fields .search-destination .dropdown-menu.open {
+    border-radius: 20px !important;
+}
+
+.search-fields .search-button {
+    margin: 10px;
+}
+
+.search-fields .search-button button[type=submit] {
+    /* border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px; */
+    border-radius: 50px;
+}
+
+.main-search .search-fields .search-destination,
+.main-search .search-fields .search-type,
+.main-search .search-fields .search-date-range,
+.main-search .search-fields .search-guests,
+.main-search .search-fields .search-filters,
+.main-search .search-fields .search-button {
+    width: auto;
+    vertical-align: middle;
+    padding-right: 0 !important;
+}
+
+.search-fields .search-date-range-arrive,
+.search-fields .search-date-range-depart {
+    /* width: calc(50% - 5.1px); */
+    margin-right: 0 !important;
+}
+
+.search-fields .search-date-range {
+    margin-right: -10px;
 }

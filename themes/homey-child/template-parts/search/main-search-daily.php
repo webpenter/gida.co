@@ -73,19 +73,22 @@ $total_fields = $total_fields - 1;
 			<div id="search-desktop" class="search-wrap hidden-sm hidden-xs center-align">
 
 				<!-- airbnb search bar -->
+				<div class="airbnb-main-container">
+
 				<div class="airbnb-container">
 					<div class="airbnb-button-group-container">
-						<div class="airbnb-button border-right text-bold">Anywhere</div>
-						<div class="airbnb-button border-right text-bold">Any week</div>
-						<div class="airbnb-button">Add Guests</div>
+						<div id="airbnb-anywhere" class="airbnb-button border-right text-bold">Anywhere</div>
+						<div id="airbnb-anyweek" class="airbnb-button border-right text-bold">Any week</div>
+						<div id="airbnb-addguest" class="airbnb-button">Add Guests</div>
 					</div>
 					<div class="airbnb-search-button">
 						<i class="fa fa-search" aria-hidden="true"></i>
 					</div>
 				</div>
-
+				
+				<div class="search-fields" style="display: none;">
 				<?php
-                if (!$layout_order) { 
+                if ($layout_order) { 
                     foreach ($layout_order as $key=>$value) {
 
                         switch($key) { 
@@ -277,15 +280,23 @@ $total_fields = $total_fields - 1;
                 }
                 ?>
 
-				<?php if( !$advanced_filter != 0 ) { ?>
+				<?php if( $advanced_filter != 0 ) { ?>
 				<div class="search-filters">
 					<button type="button" class="btn btn-grey-outlined search-filter-btn"><i class="fa fa-sliders fa-rotate-90 search-filter-btn-i" aria-hidden="true"></i></button>
 				</div>
 				<?php } ?>
 
-				<!-- <div class="search-button">
-					<button type="submit" class="btn btn-primary"><?php echo esc_attr($homey_local['search_btn']); ?></button>
-				</div> -->
+				<div class="search-button">
+					<button type="submit" class="btn btn-primary">
+						<!-- <div class="airbnb-search-button"> -->
+							<i class="fa fa-search" aria-hidden="true"></i>
+						<!-- </div> -->
+						<?php echo esc_attr($homey_local['search_btn']); ?>
+					</button>
+				</div>
+
+				</div>
+				</div>
 				
 			</div><!-- search-wrap -->
 
