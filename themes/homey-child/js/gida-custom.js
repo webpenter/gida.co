@@ -8,6 +8,11 @@ jQuery(document).ready(function() {
         });
     });
 
+    jQuery('.search-fields .search-destination button').click(function() {
+        jQuery('.search-fields .search-guests input').removeClass('airbnb-active');
+        jQuery(this).addClass("airbnb-active");
+    });
+
     jQuery(".main-search-date-range-js input").on('focus', function() {
         jQuery('.search-fields .search-destination button').removeClass('airbnb-active');
         focusedInput = jQuery(this).attr('name');
