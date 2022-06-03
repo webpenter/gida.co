@@ -226,11 +226,11 @@ $total_fields = $total_fields - 1;
                             case 'arrive_depart':
                             	?>
                             	<div class="search-date-range main-search-date-range-js">
-									<div class="search-date-range-arrive">
+									<div class="search-date-range-arrive airbnb-button">
 										<label class="animated-label"><?php echo esc_attr(homey_option('srh_arrive_label')); ?></label>
 										<input name="arrive" autocomplete="off" value="<?php echo esc_attr($arrive); ?>" type="text" class="form-control" placeholder="<?php echo esc_attr(homey_option('srh_arrive_label')); ?>">
 									</div>
-									<div class="search-date-range-depart">
+									<div class="search-date-range-depart airbnb-button">
 										<label class="animated-label"><?php echo esc_attr(homey_option('srh_depart_label')); ?></label>
 										<input name="depart" autocomplete="off" value="<?php echo esc_attr($depart); ?>" type="text" class="form-control" placeholder="<?php echo esc_attr(homey_option('srh_depart_label')); ?>">
 									</div>
@@ -241,7 +241,7 @@ $total_fields = $total_fields - 1;
 
                             case 'guests':
                             	?>
-                            	<div class="search-guests search-guests-js">
+                            	<div class="search-guests search-guests-js airbnb-button">
                             		
 									<input name="guest" autocomplete="off" value="<?php echo esc_html__(esc_attr($guest), 'homey'); ?>" type="text" class="form-control" placeholder="<?php echo esc_html__(esc_attr(homey_option('srh_guests_label')), 'homey'); ?>">
 									<?php get_template_part ('template-parts/search/search-guests'); ?>
@@ -280,7 +280,7 @@ $total_fields = $total_fields - 1;
                 }
                 ?>
 
-				<?php if( $advanced_filter != 0 ) { ?>
+				<?php if( !$advanced_filter != 0 ) { ?>
 				<div class="search-filters">
 					<button type="button" class="btn btn-grey-outlined search-filter-btn"><i class="fa fa-sliders fa-rotate-90 search-filter-btn-i" aria-hidden="true"></i></button>
 				</div>
