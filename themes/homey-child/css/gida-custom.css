@@ -155,7 +155,7 @@
 
 /* search fields min width */
 .search-fields .search-destination {
-    min-width: 40% !important;
+    min-width: 30% !important;
 }
 
 .search-fields .search-guests {
@@ -164,5 +164,5 @@
 
 .search-fields .search-date-range {
     margin-right: -10px;
-    min-width: 40%;
+    min-width: 35%;
 }
