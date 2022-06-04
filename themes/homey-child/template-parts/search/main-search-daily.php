@@ -280,7 +280,7 @@ $total_fields = $total_fields - 1;
                 }
                 ?>
 
-				<?php if( !$advanced_filter != 0 ) { ?>
+				<?php if( $advanced_filter != 0 ) { ?>
 				<div class="search-filters">
 					<button type="button" class="btn btn-grey-outlined search-filter-btn"><i class="fa fa-sliders fa-rotate-90 search-filter-btn-i" aria-hidden="true"></i></button>
 				</div>
