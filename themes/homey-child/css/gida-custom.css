@@ -1,3 +1,7 @@
+.main-search {
+    height: 100px;
+}
+
 .airbnb-main-container {
     position: relative;
 }
@@ -38,7 +42,7 @@
 }
 
 .text-bold {
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
 .airbnb-container .airbnb-search-button {
@@ -82,11 +86,11 @@
 .search-fields .search-date-range input,
 .search-fields .search-guests input,
 .search-fields .search-filters button {
-    height: 68px !important;
-    border-radius: 50px;
+    height: 70px !important;
+    /* border-radius: 50px; */
     background-color: white;
-    border-width: 0;
-    border-left: .5px solid lightgray;
+    border: .5px solid #dddddd;
+    /* border-color: #dddddd; */
     transition: ease .2s;
 }
 
@@ -96,9 +100,20 @@
 .search-fields .search-filters button:hover {
     background-color: #EBEBEB !important;
     border-radius: 50px;
-    border-left: 0px solid lightgray;
+    /* border-left: 0px solid lightgray; */
 }
 
+/* after content */
+.search-fields .search-guests::after {
+    content: '' !important;
+}
+
+.search-date-range-arrive::after, 
+.search-date-range-depart::after {
+    content: '' !important;
+}
+
+/* box margin top */
 .search-fields .search-destination .dropdown-menu.open {
     border-radius: 24px !important;
     margin-top: 20px;
@@ -121,12 +136,18 @@
     border-radius: 20px !important;
 }
 
+.search-fields .search-guests .search-guests-wrap {
+    margin-top: 20px !important;
+}
+
 .airbnb-active {
     background-color: white !important;
     border-radius: 50px !important;
-    border-left: 0px solid lightgray !important;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px !important;
+    border: 0px solid lightgray !important;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px !important; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
     cursor: pointer;
+    z-index: 999;
 }
 
 .search-fields .search-button {
@@ -159,10 +180,28 @@
 }
 
 .search-fields .search-guests {
-    min-width: 20% !important;
+    min-width: 15% !important;
 }
 
 .search-fields .search-date-range {
     margin-right: -10px;
     min-width: 35%;
+}
+
+.z-index {
+    z-index: 999;
+}
+
+.airbnb-label {
+    display: inline-block !important;
+    top: 12px !important;
+    left: 20px !important;
+    color: black !important;
+}
+
+.search-destination input,
+.search-guests input, 
+.search-date-range-arrive input, 
+.search-date-range-depart input {
+    padding: 20px 0 0 20px !important;
 }

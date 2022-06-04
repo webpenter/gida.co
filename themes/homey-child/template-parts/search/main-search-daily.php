@@ -95,6 +95,8 @@ $total_fields = $total_fields - 1;
                             case 'location':
                                 ?>
                                 <div class="<?php echo esc_attr($location_classes).' '.esc_attr($radius_class); ?>">
+									<label class="animated-label airbnb-label text-bold z-index"><?php echo esc_attr("Where"); ?></label>
+
 									<?php if($location_field == 'geo_location') { ?>
 		                            <label class="animated-label"><?php echo esc_attr(homey_option('srh_whr_to_go')); ?></label>    
 		                            <input type="text" name="location_search" autocomplete="off" id="location_search_banner" value="<?php echo esc_attr($location_search); ?>" class="form-control input-search" placeholder="<?php echo esc_attr(homey_option('srh_whr_to_go')); ?>">
@@ -227,12 +229,12 @@ $total_fields = $total_fields - 1;
                             	?>
                             	<div class="search-date-range main-search-date-range-js">
 									<div class="search-date-range-arrive airbnb-button">
-										<label class="animated-label"><?php echo esc_attr(homey_option('srh_arrive_label')); ?></label>
-										<input name="arrive" autocomplete="off" value="<?php echo esc_attr($arrive); ?>" type="text" class="form-control" placeholder="<?php echo esc_attr(homey_option('srh_arrive_label')); ?>">
+										<label class="animated-label airbnb-label text-bold"><?php echo esc_attr(homey_option('srh_arrive_label')); ?></label>
+										<input name="arrive" autocomplete="off" value="<?php echo esc_attr($arrive); ?>" type="text" class="form-control" placeholder="<?php echo esc_attr("Add dates"); ?>">
 									</div>
 									<div class="search-date-range-depart airbnb-button">
-										<label class="animated-label"><?php echo esc_attr(homey_option('srh_depart_label')); ?></label>
-										<input name="depart" autocomplete="off" value="<?php echo esc_attr($depart); ?>" type="text" class="form-control" placeholder="<?php echo esc_attr(homey_option('srh_depart_label')); ?>">
+										<label class="animated-label airbnb-label text-bold"><?php echo esc_attr(homey_option('srh_depart_label')); ?></label>
+										<input name="depart" autocomplete="off" value="<?php echo esc_attr($depart); ?>" type="text" class="form-control" placeholder="<?php echo esc_attr("Add dates"); ?>">
 									</div>
 									<?php get_template_part ('template-parts/search/search-calendar'); ?>
 								</div>
@@ -242,8 +244,8 @@ $total_fields = $total_fields - 1;
                             case 'guests':
                             	?>
                             	<div class="search-guests search-guests-js airbnb-button">
-                            		
-									<input name="guest" autocomplete="off" value="<?php echo esc_html__(esc_attr($guest), 'homey'); ?>" type="text" class="form-control" placeholder="<?php echo esc_html__(esc_attr(homey_option('srh_guests_label')), 'homey'); ?>">
+									<label class="animated-label airbnb-label text-bold"><?php echo esc_attr(homey_option('srh_guests_label')); ?></label>
+									<input name="guest" autocomplete="off" value="<?php echo esc_html__(esc_attr($guest), 'homey'); ?>" type="text" class="form-control" placeholder="<?php echo esc_html__(esc_attr("Add guests"), 'homey'); ?>">
 									<?php get_template_part ('template-parts/search/search-guests'); ?>
 								</div>
                             	<?php
