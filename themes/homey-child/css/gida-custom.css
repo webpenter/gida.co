@@ -108,8 +108,8 @@
     content: '' !important;
 }
 
-.search-date-range-arrive::after, 
-.search-date-range-depart::after {
+.search-fields .search-date-range-arrive::after, 
+.search-fields .search-date-range-depart::after {
     content: '' !important;
 }
 
@@ -138,6 +138,7 @@
 
 .search-fields .search-guests .search-guests-wrap {
     margin-top: 20px !important;
+    border-radius: 20px !important;
 }
 
 .airbnb-active {
@@ -189,7 +190,7 @@
 }
 
 .z-index {
-    z-index: 999;
+    z-index: 99999;
 }
 
 .airbnb-label {
@@ -199,9 +200,9 @@
     color: black !important;
 }
 
-.search-destination input,
-.search-guests input, 
-.search-date-range-arrive input, 
-.search-date-range-depart input {
+.search-fields .search-destination input,
+.search-fields .search-guests input, 
+.search-fields .search-date-range-arrive input, 
+.search-fields .search-date-range-depart input {
     padding: 20px 0 0 20px !important;
 }
