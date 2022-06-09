@@ -1,9 +1,11 @@
 .main-search {
-    height: 100px;
+    height: 0px;
+    padding: 0 !important;
 }
 
 .airbnb-main-container {
     position: relative;
+    top: -76px;
 }
 
 .airbnb-container {
@@ -66,7 +68,7 @@
 
 .search-fields {
     background-color: #fff;
-    width: 70%;
+    width: 60%;
     height: 50px;
     /* padding: 8px; */
     display: flex;
@@ -75,6 +77,9 @@
     border-radius: 50px;
     border: .5px solid #dddddd;
     margin: 0 auto;
+    transition: ease .2s;
+    position: relative;
+    top: 6px;
 }
 
 .search-fields .search-destination button {
@@ -86,7 +91,7 @@
 .search-fields .search-date-range input,
 .search-fields .search-guests input,
 .search-fields .search-filters button {
-    height: 70px !important;
+    height: 60px !important;
     /* border-radius: 50px; */
     background-color: white;
     border: .5px solid #dddddd;
