@@ -1,3 +1,7 @@
+.homey_nav_sticky {
+    height: 80px !important;
+}
+
 .main-search {
     height: 0px;
     padding: 0 !important;
