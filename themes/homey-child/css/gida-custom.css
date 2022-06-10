@@ -2,6 +2,12 @@
     height: 80px !important;
 }
 
+#homey-main-search {
+    width: 100%;
+    position: absolute;
+    transition: ease .5s;
+}
+
 .main-search {
     height: 0px;
     padding: 0 !important;
@@ -10,6 +16,7 @@
 .airbnb-main-container {
     position: relative;
     top: -76px;
+    transition: ease .5s;
 }
 
 .airbnb-container {
@@ -81,7 +88,7 @@
     border-radius: 50px;
     border: .5px solid #dddddd;
     margin: 0 auto;
-    transition: ease .2s;
+    transition: ease .5s;
     position: relative;
     top: 6px;
 }
