@@ -66,7 +66,7 @@ $layout_order = $layout_order['enabled'];
 
 $total_fields = count($layout_order);
 $total_fields = $total_fields - 1;
-?>
+?> 
 <div id="homey-main-search" class="main-search <?php echo esc_attr($class);?>" data-sticky="<?php echo esc_attr( $sticky_search ); ?>">
 	<div class="<?php echo esc_attr($search_width); ?>">
 		<form class="clearfix" action="<?php echo homey_get_search_result_page(); ?>" method="GET">
