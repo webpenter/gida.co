@@ -26,7 +26,7 @@ if(homey_is_dashboard()) { ?>
     ?>
 
     <!-- desktop nav -->
-    <header id="homey_nav_sticky" class="header-nav hidden-sm hidden-xs" data-sticky="<?php echo esc_attr( $menu_sticky ); ?>  no-cache-<?php echo strtotime("now"); ?>">
+    <header id="homey_nav_sticky" class="header-nav hidden-sm hidden-xs no-cache-<?php echo strtotime("now"); ?>" data-sticky="<?php echo esc_attr( $menu_sticky ); ?>">
         <div class="<?php homey_header_container(); ?> no-cache-<?php echo strtotime("now"); ?>">
             <div class="header-inner table-block">
                 <div class="header-comp-navicon">
