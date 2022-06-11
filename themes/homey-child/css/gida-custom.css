@@ -10,7 +10,7 @@
 #homey-main-search {
     width: 100%;
     position: absolute;
-    transition: height .5s;
+    transition: height .2s;
 }
 
 .main-search {
@@ -21,7 +21,7 @@
 .airbnb-main-container {
     position: relative;
     top: -76px;
-    transition: top .5s;
+    transition: top .2s;
 }
 
 .airbnb-container {
@@ -34,7 +34,7 @@
     align-items: center;
     position: relative;
     margin: 10px auto;
-    transition: width .5s, height .5s;
+    transition: width .2s, height .2s;
 }
 
 .airbnb-container .airbnb-button-group-container {
@@ -96,7 +96,7 @@
     margin: 0 auto;
     position: relative;
     top: 6px;
-    transition: width .5s, height .5s;
+    transition: width .2s, height .2s;
 }
 
 .search-fields .search-destination button {
