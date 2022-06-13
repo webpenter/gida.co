@@ -23,6 +23,19 @@ jQuery(document).ready(function() {
         jQuery(".search-fields .main-search-date-range-js .search-date-range-arrive input").focus();
     });
 
+    // add date
+    jQuery('#airbnb-anyweek').on('click', function() {
+        jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
+
+        jQuery('.airbnb-container').hide(10);
+        jQuery('.search-fields').show(10).addClass('testing-class'); //.animate({height: "60px", width: "800px"});
+        jQuery('#homey-main-search').css({"height": "80px"});
+        jQuery('.header-nav').css({"border-bottom": "0"});
+        jQuery('.airbnb-main-container').css({"top": "-10px"});
+
+        jQuery(".search-fields .search-date-range-arrive input").focus();
+    });
+
     // add guests
     jQuery('#airbnb-addguest').on('click', function() {
         jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
