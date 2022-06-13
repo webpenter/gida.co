@@ -23,6 +23,19 @@ jQuery(document).ready(function() {
         jQuery(".search-fields .main-search-date-range-js .search-date-range-arrive input").focus();
     });
 
+    // add date
+    jQuery('#airbnb-anyweek').on('click', function() {
+        jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
+
+        jQuery('.airbnb-container').hide(10);
+        jQuery('.search-fields').show(10).addClass('testing-class'); //.animate({height: "60px", width: "800px"});
+        jQuery('#homey-main-search').css({"height": "80px"});
+        jQuery('.header-nav').css({"border-bottom": "0"});
+        jQuery('.airbnb-main-container').css({"top": "-10px"});
+
+        jQuery(".search-fields .search-date-range-arrive input").focus();
+    });
+
     // add guests
     jQuery('#airbnb-addguest').on('click', function() {
         jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
@@ -72,5 +85,20 @@ jQuery(document).ready(function() {
         jQuery('.airbnb-main-container').css({"top": "-76px"});
         jQuery('.header-nav').css({"border-bottom": "1px solid #d8dce1"})
     });
+
+    // Get the container element
+    var btnContainer = document.getElementById("tolerance-btn-container");
+
+    // Get all buttons with class="btn" inside the container
+    var btns = btnContainer.getElementsByClassName("btn-tolerance");
+
+    // Loop through the buttons and add the active class to the current/clicked button
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("btn-tolerance-active");
+            current[0].className = current[0].className.replace(" btn-tolerance-active", "");
+            this.className += " btn-tolerance-active";
+        });
+    }
 
 });

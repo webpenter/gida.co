@@ -153,9 +153,10 @@
 }
 
 .search-fields .search-date-range .search-calendar {
-    width: 800px !important;
+    width: 860px !important;
     margin-top: 20px !important;
     border-radius: 20px !important;
+    left: 52% !important;
 }
 
 .search-fields .search-guests .search-guests-wrap {
@@ -227,4 +228,33 @@
 .search-fields .search-date-range-arrive input, 
 .search-fields .search-date-range-depart input {
     padding: 20px 0 0 20px !important;
+}
+
+.btn-tolerance {
+    min-width: 70px;
+    height: 30px !important;
+    border-radius: 50px;
+    border: 1px solid #eee;
+    background-color: white;
+    padding: 0 10px;
+    color: black;
+}
+
+.btn-tolerance:hover {
+    border: 1px solid black;
+}
+
+.btn-tolerance-active {
+    border: 2px solid black;
+    background-color: #f3f3f3;
+}
+
+.search-calendar.arrive_active:after, 
+.search-calendar.arrive_active:before {
+    left: 40% !important;
+}
+
+.search-calendar.depart_active:after, 
+.search-calendar.depart_active:before {
+    left: 58% !important;
 }
