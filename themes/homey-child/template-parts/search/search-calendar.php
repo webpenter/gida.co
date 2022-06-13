@@ -192,6 +192,14 @@ if($homey_search_type == 'per_hour') {
 		<button class="search-cal-prev btn btn-action pull-left disabled"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
 		<button class="search-cal-next btn btn-action pull-right"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
 	</div><!-- calendar-navigation -->
+
+	<div id="tolerance-btn-container" style="margin-top: 70px;">
+		<button type="button" class="btn-tolerance btn-tolerance-active">Exact dates</button>
+		<button type="button" class="btn-tolerance">&#x00B1; 1</button>
+		<button type="button" class="btn-tolerance">&#x00B1; 2</button>
+		<button type="button" class="btn-tolerance">&#x00B1; 3</button>
+		<button type="button" class="btn-tolerance">&#x00B1; 7</button>
+	</div><!-- calendar-navigation -->
 </div>
 <!-- On mobile: display this button below when  the user selected arrival and depart dates -->
 <button style="display: none;" class="btn btn-primary search-calendar-btn"><?php echo esc_html__('Done', 'homey'); ?></button>
