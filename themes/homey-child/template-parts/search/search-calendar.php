@@ -194,11 +194,16 @@ if($homey_search_type == 'per_hour') {
 	</div><!-- calendar-navigation -->
 
 	<div id="tolerance-btn-container" style="margin-top: 70px;">
-		<button type="button" class="btn-tolerance btn-tolerance-active">Exact dates</button>
-		<button type="button" class="btn-tolerance">&#x00B1; 1</button>
-		<button type="button" class="btn-tolerance">&#x00B1; 2</button>
-		<button type="button" class="btn-tolerance">&#x00B1; 3</button>
-		<button type="button" class="btn-tolerance">&#x00B1; 7</button>
+		<label class="btn-tolerance btn-tolerance-active" for="btn-tolerance-exact-date">
+			<input id="btn-tolerance-exact-date" type="radio" name="tolerance" value="exact-dates" class="btn-radio-tolerance" checked />Exact dates</label>
+		<label class="btn-tolerance" for="btn-tolerance-1">
+			<input id="btn-tolerance-1" type="radio" name="tolerance" value="1" class="btn-radio-tolerance" />&#x00B1; 1</label>
+		<label class="btn-tolerance" for="btn-tolerance-2">
+			<input id="btn-tolerance-2" type="radio" name="tolerance" value="2" class="btn-radio-tolerance" />&#x00B1; 2</label>
+		<label class="btn-tolerance" for="btn-tolerance-3">
+			<input id="btn-tolerance-3" type="radio" name="tolerance" value="3" class="btn-radio-tolerance" />&#x00B1; 3</label>
+		<label class="btn-tolerance" for="btn-tolerance-7">
+			<input id="btn-tolerance-7" type="radio" name="tolerance" value="7" class="btn-radio-tolerance" />&#x00B1; 7</label>
 	</div><!-- calendar-navigation -->
 </div>
 <!-- On mobile: display this button below when  the user selected arrival and depart dates -->

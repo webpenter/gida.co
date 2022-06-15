@@ -176,6 +176,78 @@ if(!function_exists('homey_search_date_format')) {
     }
 }
 
+// add by Ahmad Raza ( Core PHP, Laravel, WordPress Developer at WebPenter.com )
+if(!function_exists('homey_search_date_format_with_tolerance')) {
+    function homey_search_date_format_with_tolerance($gdate, $tolerance, $check) {
+
+        $homey_date_format = homey_option('homey_date_format');
+
+        if(empty($gdate)) {
+            return '';
+        }
+
+        if($homey_date_format == 'yy-mm-dd') {
+            $get_date = explode('-', $gdate);
+            $year = $get_date[0];
+            $month = $get_date[1];
+            $day = $get_date[2];
+
+        } elseif($homey_date_format == 'yy-dd-mm') {
+            $get_date = explode('-', $gdate);
+            $year = $get_date[0];
+            $month = $get_date[2];
+            $day = $get_date[1];
+
+        } elseif($homey_date_format == 'mm-yy-dd') {
+            $get_date = explode('-', $gdate);
+            $year = $get_date[1];
+            $month = $get_date[0];
+            $day = $get_date[2];
+            
+        } elseif($homey_date_format == 'dd-yy-mm') {
+            $get_date = explode('-', $gdate);
+            $year = $get_date[1];
+            $month = $get_date[2];
+            $day = $get_date[0];
+            
+        } elseif($homey_date_format == 'mm-dd-yy') {
+            $get_date = explode('-', $gdate);
+            $year = $get_date[2];
+            $month = $get_date[0];
+            $day = $get_date[1];
+            
+        } elseif($homey_date_format == 'dd-mm-yy') {
+            $get_date = explode('-', $gdate);
+            $year = $get_date[2];
+            $month = $get_date[1];
+            $day = $get_date[0];
+            
+        } elseif($homey_date_format == 'dd.mm.yy') {
+            $get_date = explode('.', $gdate);
+            $year = $get_date[2];
+            $month = $get_date[1];
+            $day = $get_date[0];
+
+        } else {
+            $return_date = $gdate;
+        }
+
+        $return_date = $year.'-'.$month.'-'.$day;
+
+        if( $check === 'arrive' ) {
+            $return_date = date('Y-m-d', strtotime($return_date. ' - '. $tolerance .' day'));
+            
+            if( $return_date < date("Y-m-d") ) {
+                $return_date = date("Y-m-d");
+            }
+        } else {
+            $return_date = date('Y-m-d', strtotime($return_date. ' + '. $tolerance .' day'));
+        }
+
+        return $return_date;
+    }
+}
+
 add_filter('homey_radius_filter', 'homey_radius_filter_callback', 10, 4);
 if( !function_exists('homey_radius_filter_callback') ) {
     function homey_radius_filter_callback( $query_args, $search_lat, $search_long, $search_radius ) {
@@ -272,9 +344,15 @@ if( !function_exists('homey_listing_search') ) {
         $area = isset($_GET['area']) ? $_GET['area'] : '';
         $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
 
-        $arrive = homey_search_date_format($arrive);
-        $depart = homey_search_date_format($depart);
-        
+        $tolerance = isset( $_GET['tolerance'] ) ? $_GET['tolerance'] : '';
+
+        if( $tolerance !== '' && $tolerance !== 'exact-dates' ) {     
+            $arrive = homey_search_date_format_with_tolerance($arrive, $tolerance, 'arrive');
+            $depart = homey_search_date_format_with_tolerance($depart, $tolerance, 'depart');
+        } else {
+            $arrive = homey_search_date_format($arrive);
+            $depart = homey_search_date_format($depart);
+        }
 
         if( homey_option('enable_radius') ) {
 
