@@ -101,4 +101,26 @@ jQuery(document).ready(function() {
         });
     }
 
+    // new Splide('.splide', {
+    //     type: 'loop',
+    //     height: '3rem',
+    //     perPage: 3,
+    //     // breakpoints: {
+    //     //     640: {
+    //     //         height: '6rem',
+    //     //     },
+    //     // },
+    // }).mount();
+
+    new Splide('.splide', {
+        fixedWidth: 'auto',
+        fixedHeight: '6rem',
+        padding: { left: 80, right: 80},
+        gap: '5rem',
+        pagination: false,
+    }).mount();
+
+    if (jQuery('.splide__arrow').prop('disabled')) {
+        
+    }
 });
