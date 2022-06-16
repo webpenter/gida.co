@@ -7,9 +7,11 @@ function homey_enqueue_styles() {
     // enqueue child styles
     wp_enqueue_style('homey-child-theme', get_stylesheet_directory_uri() .'/style.css', array('homey-parent-theme'));
     wp_enqueue_style('gida-custom-css', get_stylesheet_directory_uri() .'/css/gida-custom.css', array('homey-parent-theme'));
+    wp_enqueue_style('gida-splide-min-css', get_stylesheet_directory_uri() .'/css/splide.min.css');
 
     // enqueue child scripts
     wp_enqueue_script('gida-custom-js', get_stylesheet_directory_uri() .'/js/gida-custom.js', array('jquery'));
+    wp_enqueue_script('gida-splide-min-js', get_stylesheet_directory_uri() .'/js/splide.min.js');
 }
 add_action('wp_enqueue_scripts', 'homey_enqueue_styles');
 

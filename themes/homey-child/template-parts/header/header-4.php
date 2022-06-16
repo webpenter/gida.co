@@ -70,6 +70,7 @@ if(homey_is_dashboard()) { ?>
                     if ($search_pages == 'only_home') {
                         if (is_front_page()) {
                             get_template_part ('template-parts/search/main-search');
+                            get_template_part ('template-parts/filter/filter-like-airbnb');
                         }
                     } elseif ($search_pages == 'all_pages') {
                             get_template_part ('template-parts/search/main-search');
