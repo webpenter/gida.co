@@ -270,6 +270,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: white;
+    z-index: 9999;
 }
 
 .splide__slide {
@@ -285,4 +286,13 @@
 .splide__slide__label {
     color: gray;
     font-size: 12px;
+}
+
+.splide__arrow {
+    background-color: white !important;
+    transition: ease .2s;
+}
+
+.splide__arrow:hover {
+    background-color: #dddddd !important;
 }
