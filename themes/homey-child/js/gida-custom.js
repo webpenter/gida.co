@@ -115,12 +115,28 @@ jQuery(document).ready(function() {
     new Splide('.splide', {
         fixedWidth: 'auto',
         fixedHeight: '6rem',
-        padding: { left: 80, right: 80},
+        padding: { left: 100, right: 100},
         gap: '5rem',
         pagination: false,
     }).mount();
 
-    if (jQuery('.splide__arrow').prop('disabled')) {
-        
+    if (jQuery('.splide__arrow.splide__arrow--prev').prop('disabled')) {
+        jQuery('.splide__arrow.splide__arrow--prev').hide();
+    } else {
+        jQuery('.splide__arrow.splide__arrow--prev').show();
     }
+
+    jQuery('.splide__arrow').click(function () {
+        if (jQuery('.splide__arrow.splide__arrow--prev').prop('disabled')) {
+            jQuery('.splide__arrow.splide__arrow--prev').hide();
+        } else {
+            jQuery('.splide__arrow.splide__arrow--prev').show();
+        }
+
+        if (jQuery('.splide__arrow.splide__arrow--next').prop('disabled')) {
+            jQuery('.splide__arrow.splide__arrow--next').hide();
+        } else {
+            jQuery('.splide__arrow.splide__arrow--next').show();
+        }
+    });
 });

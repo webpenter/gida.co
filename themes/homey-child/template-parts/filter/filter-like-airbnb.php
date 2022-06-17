@@ -1,55 +1,41 @@
-<div class="filter-like-airbnb">
+<div class="filter-like-airbnb" style="margin: 0 auto">
+    <?php
+    // homey_listing_taxonomies('listing_type', true, true, 20); 
+
+    // echo "<pre>";
+    // print_r( get_term_meta(62) );
+    // print_r( wp_get_attachment_image_url(get_term_meta(62)['homey_taxonomy_img'][0]) );
+    
+    $tax = 'listing_type';
+    $terms = get_terms($tax, array('parent' => 0));
+    if (!is_wp_error($terms)) {
+        $count = count($terms);
+        if ($count > 0) {
+
+        //echo '<a href="' . esc_url( get_term_link( $terms[0]->slug, $terms[0]->taxonomy ) ). '">' . esc_attr( $terms[0]->name ) . '</a>';
+    
+    ?>
     <section class="splide" aria-labelledby="carousel-heading">
         <div class="splide__track">
             <ul class="splide__list">
+                <?php
+                foreach ($terms as $term){
+                ?>
                 <li class="splide__slide">
-                    <div class="splide__slide__container">
-                        <img src="https://a0.muscache.com/pictures/8e507f16-4943-4be9-b707-59bd38d56309.jpg">
-                    </div>
-                    <div class="splide__slide__label">
-                        <span>Iclands</span>
-                    </div>
+                    <a href="<?php echo esc_url( get_term_link( $term->slug, $term->taxonomy ) ); ?>">
+                        <div class="splide__slide__container">
+                            <img src="<?php echo wp_get_attachment_image_url( get_term_meta( $term->term_id )['homey_taxonomy_icon'][0] ); ?>" alt="">
+                        </div>
+                        <div class="splide__slide__label">
+                            <span><?php echo esc_attr( $term->name ); ?></span>
+                        </div>
+                    </a>
                 </li>
-                <li class="splide__slide">
-                    <div class="splide__slide__container">
-                        <img src="https://a0.muscache.com/pictures/c0a24c04-ce1f-490c-833f-987613930eca.jpg">
-                    </div>
-                    <div class="splide__slide__label">
-                        <span>National Parks</span>
-                    </div>
-                </li>
-                <li class="splide__slide">
-                    <div class="splide__slide__container">
-                        <img src="https://a0.muscache.com/pictures/35919456-df89-4024-ad50-5fcb7a472df9.jpg">
-                    </div>
-                    <div class="splide__slide__label">
-                        <span>Tiny Home</span>
-                    </div>
-                </li>
-                <li class="splide__slide">
-                    <div class="splide__slide__container">
-                        <img src="https://a0.muscache.com/pictures/c5a4f6fc-c92c-4ae8-87dd-57f1ff1b89a6.jpg">
-                    </div>
-                    <div class="splide__slide__label">
-                        <spna>OMG!</spna>
-                    </div>
-                </li>
-                <li class="splide__slide">
-                    <div class="splide__slide__container">
-                        <img src="https://a0.muscache.com/pictures/ca25c7f3-0d1f-432b-9efa-b9f5dc6d8770.jpg">
-                    </div>
-                    <div class="splide__slide__label">
-                        <span>Camping</span>
-                    </div>
-                </li>
-                <li class="splide__slide">
-                    <div class="splide__slide__container">
-                        <img src="https://a0.muscache.com/pictures/732edad8-3ae0-49a8-a451-29a8010dcc0c.jpg">
-                    </div>
-                    <div class="splide__slide__label">
-                        <span>Cabins</span>
-                    </div>
-                </li>
+                <?php 
+                } 
+            }
+        }
+            ?>
             </ul>
         </div>
     </section>

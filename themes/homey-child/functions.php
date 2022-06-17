@@ -15,4 +15,44 @@ function homey_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'homey_enqueue_styles');
 
+
+/********************* META BOX DEFINITIONS ***********************/
+
+add_filter( 'rwmb_meta_boxes', 'custom_homey_register_metaboxes', 20, 0 );
+
+if( !function_exists( 'custom_homey_register_metaboxes' ) ) {
+    function custom_homey_register_metaboxes() {
+
+        if (!class_exists('RW_Meta_Box')) {
+            return;
+        }
+
+        global $meta_boxes, $wpdb;
+        $prefix = 'homey_';
+        // $meta_boxes = array();
+
+        /* ===========================================================================================
+        *   Taxonomies
+        * ============================================================================================*/
+        $meta_boxes[] = array(
+            'id'        => 'custom_homey_taxonomies',
+            'title'     => esc_html__('Filter Icon', 'homey' ),
+            'taxonomies' => array( 'listing_type', 'listing_city', 'room_type', 'listing_country', 'listing_state', 'listing_area' ),
+            
+
+            'fields'    => array(
+                array(
+                    'name'      => esc_html__('Icon', 'homey' ),
+                    'id'        => $prefix . 'taxonomy_icon',
+                    'type'      => 'image_advanced',
+                    'max_file_uploads' => 1,
+                ),
+            )
+        );
+
+        $meta_boxes = apply_filters('homey_theme_meta', $meta_boxes);
+
+        return $meta_boxes;
+    }
+}
 ?>
