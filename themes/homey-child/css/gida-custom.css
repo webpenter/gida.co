@@ -2,9 +2,10 @@
     height: 80px !important;
 }
 
-.testing-class {
+.search-fields-animation {
     width: 100% !important;
     height: 60px !important;
+    top: 76px !important;
 }
 
 #homey-main-search {
@@ -18,7 +19,13 @@
     padding: 0 !important;
 }
 
-.airbnb-main-container {
+/* .airbnb-main-container {
+    position: relative;
+    top: -76px;
+    transition: top .2s;
+} */
+
+#search-desktop {
     position: relative;
     top: -76px;
     transition: top .2s;
@@ -96,7 +103,7 @@
     margin: 0 auto;
     position: relative;
     top: 6px;
-    transition: width .2s, height .2s;
+    transition: width .2s, height .2s, top .2s;
 }
 
 .search-fields .search-destination button {
