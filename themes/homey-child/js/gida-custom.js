@@ -2,8 +2,8 @@ jQuery(document).ready(function() {
     jQuery('.search-fields .search-destination button span.filter-option').addClass('text-bold ').css({"left": "8px", "top": "24px"});
     jQuery('#airbnb-anywhere').on('click', function() {
         jQuery('.airbnb-container').hide(10);
-        jQuery('.search-fields').show(10).addClass('testing-class'); //.animate({height: "60px", width: "800px"});
-        jQuery('#homey-main-search').css({"height": "80px"});
+        jQuery('.search-fields').show(10).addClass('search-fields-animation'); //.animate({height: "60px", width: "800px"});
+        jQuery('#homey-main-search').css({"height": "80px", "z-index": "999999"});
         jQuery('.header-nav').css({"border-bottom": "0"});
         jQuery('.airbnb-main-container').css({"top": "-10px"});
         jQuery('.search-fields .search-destination button').addClass('airbnb-active');
@@ -28,8 +28,8 @@ jQuery(document).ready(function() {
         jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
 
         jQuery('.airbnb-container').hide(10);
-        jQuery('.search-fields').show(10).addClass('testing-class'); //.animate({height: "60px", width: "800px"});
-        jQuery('#homey-main-search').css({"height": "80px"});
+        jQuery('.search-fields').show(10).addClass('search-fields-animation'); //.animate({height: "60px", width: "800px"});
+        jQuery('#homey-main-search').css({"height": "80px", "z-index": "999999"});
         jQuery('.header-nav').css({"border-bottom": "0"});
         jQuery('.airbnb-main-container').css({"top": "-10px"});
 
@@ -41,8 +41,8 @@ jQuery(document).ready(function() {
         jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
 
         jQuery('.airbnb-container').hide(10);
-        jQuery('.search-fields').show(10).addClass('testing-class'); //.animate({height: "60px", width: "800px"});
-        jQuery('#homey-main-search').css({"height": "80px"});
+        jQuery('.search-fields').show(10).addClass('search-fields-animation'); //.animate({height: "60px", width: "800px"});
+        jQuery('#homey-main-search').css({"height": "80px", "z-index": "999999"});
         jQuery('.header-nav').css({"border-bottom": "0"});
         jQuery('.airbnb-main-container').css({"top": "-10px"});
 
@@ -78,10 +78,10 @@ jQuery(document).ready(function() {
     });
 
     jQuery(window).scroll(function() {
-        jQuery('.search-fields').removeClass('testing-class');
+        jQuery('.search-fields').removeClass('search-fields-animation');
         jQuery('.search-fields').hide(10);
         jQuery('.airbnb-container').show(10);
-        jQuery('#homey-main-search').css({"height": "0px"});
+        jQuery('#homey-main-search').css({"height": "0px", "z-index": "999"});
         jQuery('.airbnb-main-container').css({"top": "-76px"});
         jQuery('.header-nav').css({"border-bottom": "1px solid #d8dce1"})
     });
