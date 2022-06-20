@@ -115,7 +115,7 @@ jQuery(document).ready(function() {
     new Splide('.splide', {
         fixedWidth: 'auto',
         fixedHeight: '6rem',
-        padding: { left: 100, right: 100},
+        padding: { left: 50, right: 50},
         gap: '5rem',
         pagination: false,
     }).mount();
@@ -138,5 +138,16 @@ jQuery(document).ready(function() {
         } else {
             jQuery('.splide__arrow.splide__arrow--next').show();
         }
+    });
+
+    /* ------------------------------------------------------------------------ */
+    /* Dropdown Search Menu
+    /* ------------------------------------------------------------------------ */
+    jQuery('.search-filter-wrap .search-filter-footer').append('<button type="button" class="btn btn-warning search-filter-close-btn">Close</button>')
+
+    var search_filter_close_btn = jQuery('.search-filter-close-btn');
+    search_filter_close_btn.on('click', function() {
+        jQuery(this).parents('.custom-filter-form').find('.search-filter').removeClass('search-filter-open');
+        jQuery(this).parents('.custom-filter-form').find('.search-filters .custom-btn-btn').removeClass('active');
     });
 });
