@@ -273,7 +273,43 @@
 }
 
 /* filter slider */
+.filter-like-airbnb {
+    background-color: white;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.custom-filter-section {
+    padding-left: 30px;
+}
+
+.custom-btn-btn {
+    padding: 4px 14px !important;
+    border-radius: 15px !important;
+    color: black !important;
+    font-weight: bold !important;
+}
+
+.custom-btn-text {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-auto-flow: column;
+    font-size: 12px !important;
+}
+
+.custom-filter-section .search-filter {
+    top: 185px !important;
+    position: absolute !important;
+    width: 80% !important;
+}
+
+.search-filter-wrap {
+    border-radius: 25px !important;
+}
+
 .splide {
+    width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: white;
