@@ -301,7 +301,12 @@
 .custom-filter-section .search-filter {
     top: 185px !important;
     position: absolute !important;
-    width: 80% !important;
+    width: 90% !important;
+}
+
+.custom-filter-section .search-filters {
+    position: relative;
+    z-index: 99;
 }
 
 .search-filter-wrap {
