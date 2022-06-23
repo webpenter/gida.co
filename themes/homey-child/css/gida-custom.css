@@ -352,7 +352,8 @@
         margin: 10px 0;
     }   
 
-    #homey-main-search .container {
+    #homey-main-search .container,
+    #homey-main-search .container-fluid {
         background-color: white;
     }
 
