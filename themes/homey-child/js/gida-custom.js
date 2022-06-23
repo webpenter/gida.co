@@ -118,6 +118,12 @@ jQuery(document).ready(function() {
         padding: { left: 50, right: 50},
         gap: '5rem',
         pagination: false,
+        breakpoints: {
+            640: {
+                padding: { left: 20, right: 20},
+                arrows: false,
+            },
+        },
     }).mount();
 
     if (jQuery('.splide__arrow.splide__arrow--prev').prop('disabled')) {
@@ -143,11 +149,24 @@ jQuery(document).ready(function() {
     /* ------------------------------------------------------------------------ */
     /* Dropdown Search Menu
     /* ------------------------------------------------------------------------ */
+
+    var custom_search_filter_open_btn = jQuery('.custom-search-banner-mobile .search-filters .custom-btn-btn');
+    custom_search_filter_open_btn.on('click', function() {
+        jQuery('.filter-like-airbnb .splide').toggle();
+    });
+
     jQuery('.search-filter-wrap .search-filter-footer').append('<button type="button" class="btn btn-warning search-filter-close-btn">Close</button>')
 
     var search_filter_close_btn = jQuery('.search-filter-close-btn');
     search_filter_close_btn.on('click', function() {
-        jQuery(this).parents('.custom-filter-form').find('.search-filter').removeClass('search-filter-open');
-        jQuery(this).parents('.custom-filter-form').find('.search-filters .custom-btn-btn').removeClass('active');
+        var check = jQuery(this).parents('.custom-search-banner-mobile').find('.search-filter');
+        if( check.length > 0 ) {
+            jQuery('.filter-like-airbnb .splide').show();
+            jQuery(this).parents('.custom-search-banner-mobile').find('.search-filter').removeClass('search-filter-open');
+            jQuery(this).parents('.custom-search-banner-mobile').find('.search-filters .custom-btn-btn').removeClass('active');
+        } else {
+            jQuery(this).parents('.custom-filter-form').find('.search-filter').removeClass('search-filter-open');
+            jQuery(this).parents('.custom-filter-form').find('.search-filters .custom-btn-btn').removeClass('active');
+        }
     });
 });

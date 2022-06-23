@@ -306,7 +306,7 @@
 
 .custom-filter-section .search-filters {
     position: relative;
-    z-index: 99;
+    z-index: 9999;
 }
 
 .search-filter-wrap {
@@ -343,4 +343,63 @@
 
 .splide__arrow:hover {
     background-color: #dddddd !important;
+}
+
+
+/* mobile responsive */
+@media (max-width: 991px) {
+    .main-search .search-banner-mobile {
+        margin: 10px 0;
+    }   
+
+    #homey-main-search .container {
+        background-color: white;
+    }
+
+    .filter-like-airbnb {
+        margin-top: 70px;
+        padding: 0 0;
+    }
+
+    .splide {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .custom-airbnb-search-bar {
+        height: 50px !important;
+        border-radius: 50px !important;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px !important;
+    }
+
+    .search-destination:after {
+        top: 14px !important;
+    }
+
+    .custom-search-banner-mobile .search-filters {
+        position: absolute;
+        top: 17px;
+        right: 11px;
+    }
+
+    .custom-search-banner-mobile .search-filters .custom-btn-btn {
+        width: 35px !important;
+        height: 35px !important;
+        padding: 4px 10px !important;
+        border-radius: 50px !important;
+    }
+
+    .custom-search-banner-mobile .search-filter .search-filter-wrap {
+        height: 500px;
+        overflow-y: scroll;
+    }
+
+    .custom-search-banner-mobile .search-filter .search-filter-wrap .search-filter-footer {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .custom-search-banner-mobile .search-filter .search-filter-wrap .search-filter-footer button {
+        padding: 0 15px !important;
+    }
 }

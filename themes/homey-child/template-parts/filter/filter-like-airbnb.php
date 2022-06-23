@@ -16,7 +16,7 @@
     
     ?>
 
-    <section class="custom-filter-section">
+    <section class="custom-filter-section search-wrap hidden-sm hidden-xs">
         <form class="clearfix custom-filter-form" action="<?php echo homey_get_search_result_page(); ?>" method="GET">
             <div class="search-filters">
                 <button type="button" class="btn btn-grey-outlined search-filter-btn custom-btn-btn">
