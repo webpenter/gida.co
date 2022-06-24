@@ -309,7 +309,7 @@ $total_fields = $total_fields - 1;
 
 			</div><!-- search-wrap -->
 
-			<div class="custom-search-banner-mobile hidden-lg hidden-md">
+			<div class="search-wrap custom-search-banner-mobile hidden-lg hidden-md">
 				<div class="search-filters">
 					<button type="button" class="btn btn-grey-outlined search-filter-btn custom-btn-btn">
 						<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:block;height:14px;width:14px;fill:currentColor" aria-hidden="true" role="presentation" focusable="false">
