@@ -77,14 +77,58 @@ jQuery(document).ready(function() {
         jQuery(this).addClass("airbnb-active").parent().addClass('z-index');
     });
 
+    let check_homey_is_mobile = false;
+    if (/Android|webOS|iPhone|iPad|iPod|tablet|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        check_homey_is_mobile = true;
+    }
+
     jQuery(window).scroll(function() {
-        jQuery('.search-fields').removeClass('search-fields-animation');
-        jQuery('.search-fields').hide(10);
-        jQuery('.airbnb-container').show(10);
-        jQuery('#homey-main-search').css({"height": "0px", "z-index": "999"});
-        jQuery('.airbnb-main-container').css({"top": "-76px"});
-        jQuery('.header-nav').css({"border-bottom": "1px solid #d8dce1"})
+        if( check_homey_is_mobile ){
+            jQuery('.search-fields').removeClass('search-fields-animation');
+            jQuery('.search-fields').hide(10);
+            jQuery('.airbnb-container').show(10);
+            jQuery('#homey-main-search').css({"height": "0px", "z-index": "999"});
+            jQuery('.airbnb-main-container').css({"top": "-76px"});
+            jQuery('.header-nav').css({"border-bottom": "1px solid #d8dce1"})
+        }
     });
+
+    function homey_custom_sticky_nav_search_mobile() {
+        var header_nav = jQuery('.header-nav');
+        var header_area = jQuery('.nav-area');
+        var header_area_height = header_area.innerHeight();
+        jQuery(window).scroll(function() {
+            var scroll = jQuery(window).scrollTop();
+            var thisHeight = header_nav.outerHeight();
+            var admin_nav = jQuery('#wpadminbar').height();
+
+            if( admin_nav == 'null' ) { admin_nav = 0; }
+
+            if (scroll >= header_area_height ) {
+                header_area.addClass('sticky-nav-area');
+                header_area.css('top', admin_nav);
+                if (scroll >= header_area_height + 20 ) {
+                    header_area.addClass('homey-in-view');
+                    // if(is_top_header || !homey_is_transparent) {
+                    //     section_body.css('padding-top',thisHeight);
+                    // }
+                }
+            } else {
+                header_area.removeClass('sticky-nav-area');
+                header_area.removeAttr("style");
+                if (scroll <= header_area_height + 20 ) {
+                    header_area.removeClass('homey-in-view');
+                }
+                // if(is_top_header || !homey_is_transparent) {
+                //     section_body.css('padding-top',0);
+                // }
+            }
+        });
+    }
+
+    if( check_homey_is_mobile ) {
+        homey_custom_sticky_nav_search_mobile();
+    }
 
     // Get the container element
     var btnContainer = document.getElementById("tolerance-btn-container");
