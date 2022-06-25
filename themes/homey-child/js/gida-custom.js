@@ -165,7 +165,7 @@ jQuery(document).ready(function() {
         breakpoints: {
             640: {
                 padding: { left: 20, right: 20},
-                arrows: false,
+                // arrows: false,
             },
         },
     }).mount();
