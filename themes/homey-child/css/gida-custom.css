@@ -404,3 +404,11 @@
         padding: 0 15px !important;
     }
 }
+
+/* mobile responsive */
+@media (max-width: 991px) {
+    #overlay-search-advanced-module .search-destination button {
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    }
+}
