@@ -78,113 +78,122 @@ $total_fields = $total_fields - 1;
                     switch ($key) {
                         case 'location':
             ?>
-                            <div class="<?php echo esc_attr($location_classes); ?>">
+                            <div class="airbnb-btn-search"  style="display: none;">
+                                <div class="airbnb-btn-search-inner">
+                                    <span>Where</span>
+                                    <span class="city-name"></span>
+                                </div>
+                            </div>
+                            <div class="airbnb-btn-mobile">
+                                <h3>Where to?</h3>
+                                <div class="<?php echo esc_attr($location_classes); ?>">
 
-                                <?php if ($location_field == 'geo_location') { ?>
-                                    <label class="animated-label"><?php echo esc_attr(homey_option('srh_whr_to_go')); ?></label>
-                                    <input name="location_search" autocomplete="off" id="location_search_mobile" value="<?php echo esc_attr($location_search); ?>" type="text" class="form-control input-search" placeholder="<?php echo esc_attr(homey_option('srh_whr_to_go')); ?>">
+                                    <?php if ($location_field == 'geo_location') { ?>
+                                        <label class="animated-label"><?php echo esc_attr(homey_option('srh_whr_to_go')); ?></label>
+                                        <input name="location_search" autocomplete="off" id="location_search_mobile" value="<?php echo esc_attr($location_search); ?>" type="text" class="form-control input-search" placeholder="<?php echo esc_attr(homey_option('srh_whr_to_go')); ?>">
 
-                                    <input type="hidden" name="search_city" data-value="<?php echo esc_attr($city); ?>" value="<?php echo esc_attr($city); ?>">
-                                    <input type="hidden" name="search_area" data-value="<?php echo esc_attr($area); ?>" value="<?php echo esc_attr($area); ?>">
-                                    <input type="hidden" name="search_country" data-value="<?php echo esc_attr($country); ?>" value="<?php echo esc_attr($country); ?>">
+                                        <input type="hidden" name="search_city" data-value="<?php echo esc_attr($city); ?>" value="<?php echo esc_attr($city); ?>">
+                                        <input type="hidden" name="search_area" data-value="<?php echo esc_attr($area); ?>" value="<?php echo esc_attr($area); ?>">
+                                        <input type="hidden" name="search_country" data-value="<?php echo esc_attr($country); ?>" value="<?php echo esc_attr($country); ?>">
 
-                                    <input type="hidden" name="lat" value="<?php echo esc_attr($lat); ?>">
-                                    <input type="hidden" name="lng" value="<?php echo esc_attr($lng); ?>">
+                                        <input type="hidden" name="lat" value="<?php echo esc_attr($lat); ?>">
+                                        <input type="hidden" name="lng" value="<?php echo esc_attr($lng); ?>">
 
-                                <?php } elseif ($location_field == 'keyword') { ?>
+                                    <?php } elseif ($location_field == 'keyword') { ?>
 
-                                    <label class="animated-label"><?php echo esc_attr(homey_option('srh_whr_to_go')); ?></label>
-                                    <input type="text" name="keyword" autocomplete="off" value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>" class="form-control input-search" placeholder="<?php echo esc_attr(homey_option('srh_whr_to_go')); ?>">
+                                        <label class="animated-label"><?php echo esc_attr(homey_option('srh_whr_to_go')); ?></label>
+                                        <input type="text" name="keyword" autocomplete="off" value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>" class="form-control input-search" placeholder="<?php echo esc_attr(homey_option('srh_whr_to_go')); ?>">
 
-                                <?php } elseif ($location_field == 'country') { ?>
+                                    <?php } elseif ($location_field == 'country') { ?>
 
-                                    <select name="country" class="selectpicker" data-live-search="true">
-                                        <?php
-                                        // All Option
-                                        echo '<option value="">' . esc_attr(homey_option('srh_whr_to_go')) . '</option>';
+                                        <select name="country" class="selectpicker" data-live-search="true">
+                                            <?php
+                                            // All Option
+                                            echo '<option value="">' . esc_attr(homey_option('srh_whr_to_go')) . '</option>';
 
-                                        $listing_country = get_terms(
-                                            array(
-                                                "listing_country"
-                                            ),
-                                            array(
-                                                'orderby' => 'name',
-                                                'order' => 'ASC',
-                                                'hide_empty' => false,
-                                                'parent' => 0
-                                            )
-                                        );
-                                        homey_hirarchical_options('listing_country', $listing_country, $listing_country_pre);
-                                        ?>
-                                    </select>
+                                            $listing_country = get_terms(
+                                                array(
+                                                    "listing_country"
+                                                ),
+                                                array(
+                                                    'orderby' => 'name',
+                                                    'order' => 'ASC',
+                                                    'hide_empty' => false,
+                                                    'parent' => 0
+                                                )
+                                            );
+                                            homey_hirarchical_options('listing_country', $listing_country, $listing_country_pre);
+                                            ?>
+                                        </select>
 
-                                <?php } elseif ($location_field == 'state') { ?>
+                                    <?php } elseif ($location_field == 'state') { ?>
 
-                                    <select name="state" class="selectpicker" data-live-search="true">
-                                        <?php
-                                        // All Option
-                                        echo '<option value="">' . esc_attr(homey_option('srh_whr_to_go')) . '</option>';
+                                        <select name="state" class="selectpicker" data-live-search="true">
+                                            <?php
+                                            // All Option
+                                            echo '<option value="">' . esc_attr(homey_option('srh_whr_to_go')) . '</option>';
 
-                                        $listing_state = get_terms(
-                                            array(
-                                                "listing_state"
-                                            ),
-                                            array(
-                                                'orderby' => 'name',
-                                                'order' => 'ASC',
-                                                'hide_empty' => false,
-                                                'parent' => 0
-                                            )
-                                        );
-                                        homey_hirarchical_options('listing_state', $listing_state, $listing_state_pre);
-                                        ?>
-                                    </select>
+                                            $listing_state = get_terms(
+                                                array(
+                                                    "listing_state"
+                                                ),
+                                                array(
+                                                    'orderby' => 'name',
+                                                    'order' => 'ASC',
+                                                    'hide_empty' => false,
+                                                    'parent' => 0
+                                                )
+                                            );
+                                            homey_hirarchical_options('listing_state', $listing_state, $listing_state_pre);
+                                            ?>
+                                        </select>
 
-                                <?php } elseif ($location_field == 'city') { ?>
+                                    <?php } elseif ($location_field == 'city') { ?>
 
-                                    <select name="city" class="selectpicker" data-live-search="true">
-                                        <?php
-                                        // All Option
-                                        echo '<option value="">' . esc_attr(homey_option('srh_whr_to_go')) . '</option>';
+                                        <select name="city" class="selectpicker" data-live-search="true">
+                                            <?php
+                                            // All Option
+                                            echo '<option value="">' . esc_attr(homey_option('srh_whr_to_go')) . '</option>';
 
-                                        $listing_city = get_terms(
-                                            array(
-                                                "listing_city"
-                                            ),
-                                            array(
-                                                'orderby' => 'name',
-                                                'order' => 'ASC',
-                                                'hide_empty' => false,
-                                                'parent' => 0
-                                            )
-                                        );
-                                        homey_hirarchical_options('listing_city', $listing_city, $listing_city_pre);
-                                        ?>
-                                    </select>
+                                            $listing_city = get_terms(
+                                                array(
+                                                    "listing_city"
+                                                ),
+                                                array(
+                                                    'orderby' => 'name',
+                                                    'order' => 'ASC',
+                                                    'hide_empty' => false,
+                                                    'parent' => 0
+                                                )
+                                            );
+                                            homey_hirarchical_options('listing_city', $listing_city, $listing_city_pre);
+                                            ?>
+                                        </select>
 
-                                <?php } elseif ($location_field == 'area') { ?>
+                                    <?php } elseif ($location_field == 'area') { ?>
 
-                                    <select name="area" class="selectpicker" data-live-search="true">
-                                        <?php
-                                        // All Option
-                                        echo '<option value="">' . esc_attr(homey_option('srh_whr_to_go')) . '</option>';
+                                        <select name="area" class="selectpicker" data-live-search="true">
+                                            <?php
+                                            // All Option
+                                            echo '<option value="">' . esc_attr(homey_option('srh_whr_to_go')) . '</option>';
 
-                                        $listing_area = get_terms(
-                                            array(
-                                                "listing_area"
-                                            ),
-                                            array(
-                                                'orderby' => 'name',
-                                                'order' => 'ASC',
-                                                'hide_empty' => false,
-                                                'parent' => 0
-                                            )
-                                        );
-                                        homey_hirarchical_options('listing_area', $listing_area, $listing_area_pre);
-                                        ?>
-                                    </select>
+                                            $listing_area = get_terms(
+                                                array(
+                                                    "listing_area"
+                                                ),
+                                                array(
+                                                    'orderby' => 'name',
+                                                    'order' => 'ASC',
+                                                    'hide_empty' => false,
+                                                    'parent' => 0
+                                                )
+                                            );
+                                            homey_hirarchical_options('listing_area', $listing_area, $listing_area_pre);
+                                            ?>
+                                        </select>
 
-                                <?php } ?>
+                                    <?php } ?>
+                                </div>
                             </div>
 
                             <?php if (homey_option('enable_radius')) { ?>
@@ -210,14 +219,24 @@ $total_fields = $total_fields - 1;
 
                         case 'arrive_depart':
                             ?>
+                            <!-- <div class="airbnb-btn-date-range">
+                                <button type="button">When</button>
+                            </div> -->
                             <div class="search-date-range main-search-date-range-js">
-                                <div class="search-date-range-arrive">
-                                    <label class="animated-label"><?php echo esc_attr(homey_option('srh_arrive_label')); ?></label>
-                                    <input name="arrive" autocomplete="off" value="<?php echo esc_attr($arrive); ?>" readonly type="text" class="form-control" placeholder="<?php echo esc_attr(homey_option('srh_arrive_label')); ?>">
-                                </div>
-                                <div class="search-date-range-depart">
-                                    <label class="animated-label"><?php echo esc_attr(homey_option('srh_depart_label')); ?></label>
-                                    <input name="depart" autocomplete="off" value="<?php echo esc_attr($depart); ?>" readonly type="text" class="form-control" placeholder="<?php echo esc_attr(homey_option('srh_depart_label')); ?>">
+                                <div class="search-date-range-outer">
+                                    <div class="airbnb-btn-date-range">
+                                        When
+                                    </div>
+                                    <div class="search-date-range-inner">
+                                        <div class="search-date-range-arrive">
+                                            <label class="animated-label"><?php echo esc_attr(homey_option('srh_arrive_label')); ?></label>
+                                            <input name="arrive" autocomplete="off" value="<?php echo esc_attr($arrive); ?>" readonly type="text" class="form-control" placeholder="<?php echo esc_attr(homey_option('srh_arrive_label')); ?>">
+                                        </div>
+                                        <div class="search-date-range-depart">
+                                            <label class="animated-label"><?php echo esc_attr(homey_option('srh_depart_label')); ?></label>
+                                            <input name="depart" autocomplete="off" value="<?php echo esc_attr($depart); ?>" readonly type="text" class="form-control" placeholder="<?php echo esc_attr(homey_option('srh_depart_label')); ?>">
+                                        </div>
+                                    </div>
                                 </div>
                                 <?php
                                 if (!is_404() && !is_search() && !is_tax() && !is_author()) {
