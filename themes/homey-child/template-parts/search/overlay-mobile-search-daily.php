@@ -258,26 +258,35 @@ $total_fields = $total_fields - 1;
 
                         case 'listing_type':
                         ?>
-                            <div class="search-type">
-                                <select name="listing_type" class="selectpicker" data-live-search="false">
-                                    <?php
-                                    // All Option
-                                    echo '<option value="">' . esc_attr(homey_option('srh_listing_type')) . '</option>';
+                            <div class="airbnb-btn-search-type">
+                                <div class="airbnb-btn-search-inner">
+                                    <span>Which</span>
+                                    <span class="type-name"></span>
+                                </div>
+                            </div>
+                            <div class="airbnb-btn-mobile-search-type" style="display: none;">
+                                <h3>Which type?</h3>
+                                <div class="search-type">
+                                    <select name="listing_type" class="selectpicker" data-live-search="false">
+                                        <?php
+                                        // All Option
+                                        echo '<option value="">' . esc_attr(homey_option('srh_listing_type')) . '</option>';
 
-                                    $listing_type = get_terms(
-                                        array(
-                                            "listing_type"
-                                        ),
-                                        array(
-                                            'orderby' => 'name',
-                                            'order' => 'ASC',
-                                            'hide_empty' => false,
-                                            'parent' => 0
-                                        )
-                                    );
-                                    homey_hirarchical_options('listing_type', $listing_type, $listing_type_pre);
-                                    ?>
-                                </select>
+                                        $listing_type = get_terms(
+                                            array(
+                                                "listing_type"
+                                            ),
+                                            array(
+                                                'orderby' => 'name',
+                                                'order' => 'ASC',
+                                                'hide_empty' => false,
+                                                'parent' => 0
+                                            )
+                                        );
+                                        homey_hirarchical_options('listing_type', $listing_type, $listing_type_pre);
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
             <?php
                             break;
