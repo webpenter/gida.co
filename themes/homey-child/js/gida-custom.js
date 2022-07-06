@@ -220,15 +220,25 @@ jQuery(document).ready(function() {
     jQuery('.airbnb-btn-search').click(function() {
         jQuery('.airbnb-btn-mobile').show();
         jQuery(this).hide();
-        // jQuery('.search-date-range').hide();
-        // jQuery('.airbnb-btn-date-range').show();
+
+        jQuery('.airbnb-btn-mobile-search-type').hide();
+        jQuery('.airbnb-btn-search-type').show();
+    })
+
+    jQuery('.airbnb-btn-search-type').click(function() {
+        jQuery('.airbnb-btn-mobile-search-type').show();
+        jQuery(this).hide();
+
+        jQuery('.airbnb-btn-mobile').hide();
+        jQuery('.airbnb-btn-search').show();
     })
 
     jQuery('.airbnb-btn-date-range').click(function() {
-        // jQuery('.search-date-range').show();
-        // jQuery(this).hide();
         jQuery('.airbnb-btn-search').show();
         jQuery('.airbnb-btn-mobile').hide();
+
+        jQuery('.airbnb-btn-mobile-search-type').hide();
+        jQuery('.airbnb-btn-search-type').show();
 
         jQuery('.search-date-range-arrive input').focus();
     })
@@ -236,11 +246,22 @@ jQuery(document).ready(function() {
     jQuery('.search-guests').click(function() {
         jQuery('.airbnb-btn-search').show();
         jQuery('.airbnb-btn-mobile').hide();
+
+        jQuery('.airbnb-btn-search-type').show();
+        jQuery('.airbnb-btn-mobile-search-type').hide();
     })
 
+    // on change city
     jQuery('.airbnb-btn-mobile .search-destination .btn-group select.selectpicker').change(function() {
         jQuery('.airbnb-btn-search .city-name').html(
             jQuery('.search-destination .btn-group .btn span:not(:first)').text()
+        )
+    })
+
+    // on change type
+    jQuery('.airbnb-btn-mobile-search-type .search-type .btn-group select.selectpicker').change(function() {
+        jQuery('.airbnb-btn-search-type .type-name').html(
+            jQuery('.search-type .btn-group .btn span:not(:first)').text()
         )
     })
 });
