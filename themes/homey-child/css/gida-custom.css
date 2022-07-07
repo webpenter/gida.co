@@ -26,6 +26,8 @@
 } */
 
 #search-desktop {
+    width: 50% !important;
+    margin: auto;
     position: relative;
     top: -76px;
     transition: top .2s;
