@@ -82,16 +82,16 @@ jQuery(document).ready(function() {
         check_homey_is_mobile = true;
     }
 
-    jQuery(window).scroll(function() {
-        if( check_homey_is_mobile ){
+    if ( !check_homey_is_mobile ) {
+        jQuery(window).scroll(function() {
             jQuery('.search-fields').removeClass('search-fields-animation');
             jQuery('.search-fields').hide(10);
             jQuery('.airbnb-container').show(10);
             jQuery('#homey-main-search').css({"height": "0px", "z-index": "999"});
             jQuery('.airbnb-main-container').css({"top": "-76px"});
             jQuery('.header-nav').css({"border-bottom": "1px solid #d8dce1"})
-        }
-    });
+        });
+    }
 
     function homey_custom_sticky_nav_search_mobile() {
         var header_nav = jQuery('.header-nav');
