@@ -69,7 +69,7 @@ $total_fields = $total_fields - 1;
 ?>
 <div id="homey-main-search" class="main-search <?php echo esc_attr($class); ?>" data-sticky="<?php echo esc_attr($sticky_search); ?>">
 	<div class="<?php echo esc_attr($search_width); ?>">
-		<form class="clearfix" action="<?php echo homey_get_search_result_page(); ?>" method="GET">
+		<form id='ban-airbnb-form' class="clearfix" action="<?php echo homey_get_search_result_page(); ?>" method="GET">
 			<div id="search-desktop" class="search-wrap hidden-sm hidden-xs center-align">
 
 				<!-- airbnb search bar -->
@@ -79,7 +79,14 @@ $total_fields = $total_fields - 1;
 						<div class="airbnb-button-group-container">
 							<div id="airbnb-anywhere" class="airbnb-button border-right text-bold">Anywhere</div>
 							<div id="airbnb-anyweek" class="airbnb-button border-right text-bold">Any week</div>
-							<div id="airbnb-addguest" class="airbnb-button">Add Guests</div>
+							<div id="airbnb-addguest" class="airbnb-button border-right text-bold">Add Guests</div>
+
+							<div id="airbnb-filter" class="airbnb-button text-bold">
+								<span class="custom-btn-text">
+									<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:block;height:14px;width:14px;fill:currentColor" aria-hidden="true" role="presentation" focusable="false"><path d="M5 8c1.306 0 2.418.835 2.83 2H14v2H7.829A3.001 3.001 0 1 1 5 8zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6-8a3 3 0 1 1-2.829 4H2V4h6.17A3.001 3.001 0 0 1 11 2zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path></svg>
+									&nbsp;&nbsp;Filters
+								</span>
+							</div>
 						</div>
 						<div class="airbnb-search-button">
 							<i class="fa fa-search" aria-hidden="true"></i>
