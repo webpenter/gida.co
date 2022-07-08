@@ -3,9 +3,11 @@
 }
 
 .search-fields-animation {
-    width: 100% !important;
+    width: 150% !important;
     height: 60px !important;
     top: 76px !important;
+    padding: 6px 62px !important;
+    left: -130px !important;
 }
 
 #homey-main-search {
@@ -105,7 +107,8 @@
     margin: 0 auto;
     position: relative;
     top: 6px;
-    transition: width .2s, height .2s, top .2s;
+    left: 0;
+    transition: width .2s, height .2s, top .2s, left .5s;
 }
 
 .search-fields .search-destination button {
@@ -114,6 +117,7 @@
 }
 
 .search-fields .search-destination button,
+.search-fields .search-type button,
 .search-fields .search-date-range input,
 .search-fields .search-guests input,
 .search-fields .search-filters button {
@@ -126,6 +130,7 @@
 }
 
 .search-fields .search-destination button:hover,
+.search-fields .search-type button:hover,
 .search-fields .search-date-range input:hover,
 .search-fields .search-guests input:hover,
 .search-fields .search-filters button:hover {
@@ -161,11 +166,17 @@
     text-align: center;
 }
 
+.search-fields .search-type .dropdown-menu.open {
+    border-radius: 24px !important;
+    margin-top: 40px;
+    width: 200px;
+}
+
 .search-fields .search-date-range .search-calendar {
-    width: 860px !important;
+    width: 909px !important; /*860px*/
     margin-top: 20px !important;
     border-radius: 20px !important;
-    left: 52% !important;
+    left: 26% !important; /*52%*/
 }
 
 .search-fields .search-guests .search-guests-wrap {
@@ -189,6 +200,8 @@
 
 .search-fields .search-button button[type=submit] {
     border-radius: 50px;
+    background-color: #1e73be !important;
+    border-color: #1e73be !important;
 }
 
 .main-search .search-fields .search-destination,
@@ -239,14 +252,18 @@
     padding: 20px 0 0 20px !important;
 }
 
+.search-fields .search-type button {
+    padding: 10px 20px;
+}
+
 .search-calendar.arrive_active:after, 
 .search-calendar.arrive_active:before {
-    left: 40% !important;
+    left: 49% !important;
 }
 
 .search-calendar.depart_active:after, 
 .search-calendar.depart_active:before {
-    left: 58% !important;
+    left: 64% !important;
 }
 
 /* btn-radio-tolerance */

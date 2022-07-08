@@ -11,8 +11,9 @@ jQuery(document).ready(function() {
     });
 
     jQuery('.search-fields .search-destination button').on('focus', function() {
-        jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
+        jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-type button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
 
+        jQuery('.search-fields .search-type button').removeClass('airbnb-active');
         jQuery('.search-fields .search-guests input').removeClass('airbnb-active').parent().removeClass('z-index');
         jQuery('.search-date-range-arrive input').removeClass('airbnb-active').parent().removeClass('z-index');
         jQuery('.search-date-range-depart input').removeClass('airbnb-active').parent().removeClass('z-index');
@@ -20,12 +21,12 @@ jQuery(document).ready(function() {
     });
 
     jQuery('.search-fields .search-destination select[name=city]').change(function() {
-        jQuery(".search-fields .main-search-date-range-js .search-date-range-arrive input").focus();
+        jQuery(".search-date-range-arrive input").focus();
     });
 
     // add date
     jQuery('#airbnb-anyweek').on('click', function() {
-        jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
+        jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-type button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
 
         jQuery('.airbnb-container').hide(10);
         jQuery('.search-fields').show(10).addClass('search-fields-animation'); //.animate({height: "60px", width: "800px"});
@@ -33,12 +34,12 @@ jQuery(document).ready(function() {
         jQuery('.header-nav').css({"border-bottom": "0"});
         jQuery('.airbnb-main-container').css({"top": "-10px"});
 
-        jQuery(".search-fields .search-date-range-arrive input").focus();
+        jQuery(".search-date-range-arrive input").focus();
     });
 
     // add guests
     jQuery('#airbnb-addguest').on('click', function() {
-        jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
+        jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-type button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
 
         jQuery('.airbnb-container').hide(10);
         jQuery('.search-fields').show(10).addClass('search-fields-animation'); //.animate({height: "60px", width: "800px"});
@@ -59,6 +60,7 @@ jQuery(document).ready(function() {
     jQuery(".search-fields .main-search-date-range-js input").on('focus', function() {
         jQuery('.search-fields .search-guests input').removeClass('airbnb-active').parent().removeClass('z-index');
         jQuery('.search-fields .search-destination button').removeClass('airbnb-active');
+        jQuery('.search-fields .search-type button').removeClass('airbnb-active');
         focusedInput = jQuery(this).attr('name');
         if(focusedInput == "arrive"){
             jQuery('.search-date-range-depart input').removeClass('airbnb-active').parent().removeClass('z-index');
@@ -71,6 +73,16 @@ jQuery(document).ready(function() {
 
     jQuery('.search-fields .search-guests input').on('focus', function() {
         jQuery(this).click();
+        jQuery('.search-fields .search-destination button').removeClass('airbnb-active');
+        jQuery('.search-fields .search-type button').removeClass('airbnb-active');
+        jQuery('.search-date-range-arrive input').removeClass('airbnb-active').parent().removeClass('z-index');
+        jQuery('.search-date-range-depart input').removeClass('airbnb-active').parent().removeClass('z-index');
+        jQuery(this).addClass("airbnb-active").parent().addClass('z-index');
+    });
+
+    jQuery('.search-fields .search-type button').on('focus', function() {
+        jQuery('.search-fields, .search-fields .search-destination button, .search-fields .search-type button, .search-fields .search-date-range input, .search-fields .search-guests input').css('background-color', 'rgb(246, 246, 246)');
+
         jQuery('.search-fields .search-destination button').removeClass('airbnb-active');
         jQuery('.search-date-range-arrive input').removeClass('airbnb-active').parent().removeClass('z-index');
         jQuery('.search-date-range-depart input').removeClass('airbnb-active').parent().removeClass('z-index');
