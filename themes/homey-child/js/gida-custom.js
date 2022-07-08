@@ -86,6 +86,8 @@ jQuery(document).ready(function() {
         jQuery('.search-fields .search-destination button').removeClass('airbnb-active');
         jQuery('.search-date-range-arrive input').removeClass('airbnb-active').parent().removeClass('z-index');
         jQuery('.search-date-range-depart input').removeClass('airbnb-active').parent().removeClass('z-index');
+        jQuery('.search-fields .search-guests input').removeClass('airbnb-active').parent().removeClass('z-index');
+
         jQuery(this).addClass("airbnb-active").parent().addClass('z-index');
     });
 
