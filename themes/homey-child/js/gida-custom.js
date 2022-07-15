@@ -7,6 +7,7 @@ jQuery(document).ready(function() {
         jQuery('.airbnb-container').hide(10);
         jQuery('.search-fields').show(10).addClass('search-fields-animation'); //.animate({height: "60px", width: "800px"});
         jQuery('#homey-main-search').css({"height": "80px", "z-index": "999999"});
+        jQuery(document).find('.half-map-search').css({"height": "80px"});
         jQuery('.header-nav').css({"border-bottom": "0"});
         jQuery('.airbnb-main-container').css({"top": "-10px"});
         jQuery('.search-fields .search-destination button').addClass('airbnb-active');
@@ -41,6 +42,7 @@ jQuery(document).ready(function() {
         jQuery('.airbnb-container').hide(10);
         jQuery('.search-fields').show(10).addClass('search-fields-animation'); //.animate({height: "60px", width: "800px"});
         jQuery('#homey-main-search').css({"height": "80px", "z-index": "999999"});
+        jQuery(document).find('.half-map-search').css({"height": "80px"});
         jQuery('.header-nav').css({"border-bottom": "0"});
         jQuery('.airbnb-main-container').css({"top": "-10px"});
 
@@ -54,6 +56,7 @@ jQuery(document).ready(function() {
         jQuery('.airbnb-container').hide(10);
         jQuery('.search-fields').show(10).addClass('search-fields-animation'); //.animate({height: "60px", width: "800px"});
         jQuery('#homey-main-search').css({"height": "80px", "z-index": "999999"});
+        jQuery(document).find('.half-map-search').css({"height": "80px"});
         jQuery('.header-nav').css({"border-bottom": "0"});
         jQuery('.airbnb-main-container').css({"top": "-10px"});
 
@@ -68,6 +71,7 @@ jQuery(document).ready(function() {
         jQuery('.airbnb-container').hide(10);
         jQuery('.search-fields').show(10).addClass('search-fields-animation'); //.animate({height: "60px", width: "800px"});
         jQuery('#homey-main-search').css({"height": "80px", "z-index": "999999"});
+        jQuery(document).find('.half-map-search').css({"height": "80px"});
         jQuery('.header-nav').css({"border-bottom": "0"});
         jQuery('.airbnb-main-container').css({"top": "-10px"});
 
@@ -83,7 +87,8 @@ jQuery(document).ready(function() {
     // });
     //---------------------
 
-    jQuery(".search-fields .main-search-date-range-js input").on('focus', function() {
+    // jQuery(".search-fields .main-search-date-range-js input").on('focus', function() {
+    jQuery(".search-fields .search-date-range input").on('focus', function() {
         jQuery('.search-fields .search-guests input').removeClass('airbnb-active').parent().removeClass('z-index');
         jQuery('.search-fields .search-destination button').removeClass('airbnb-active');
         jQuery('.search-fields .search-type button').removeClass('airbnb-active');
@@ -160,6 +165,7 @@ jQuery(document).ready(function() {
             jQuery('.search-fields').hide(10);
             jQuery('.airbnb-container').show(10);
             jQuery('#homey-main-search').css({"height": "0px", "z-index": "999"});
+            jQuery(document).find('.half-map-search').css({"height": "0px"});
             jQuery('.airbnb-main-container').css({"top": "-76px"});
             jQuery('.header-nav').css({"border-bottom": "1px solid #d8dce1"});
 
@@ -233,19 +239,23 @@ jQuery(document).ready(function() {
     //     // },
     // }).mount();
 
-    new Splide('.splide', {
-        fixedWidth: 'auto',
-        fixedHeight: '6rem',
-        padding: { left: 50, right: 50},
-        gap: '5rem',
-        pagination: false,
-        breakpoints: {
-            640: {
-                padding: { left: 20, right: 20},
-                // arrows: false,
+    let splide_class = jQuery(document).find('.splide');
+    
+    if( splide_class.length ) {
+        new Splide('.splide', {
+            fixedWidth: 'auto',
+            fixedHeight: '6rem',
+            padding: { left: 50, right: 50},
+            gap: '5rem',
+            pagination: false,
+            breakpoints: {
+                640: {
+                    padding: { left: 20, right: 20},
+                    // arrows: false,
+                },
             },
-        },
-    }).mount();
+        }).mount();
+    }
 
     if (jQuery('.splide__arrow.splide__arrow--prev').prop('disabled')) {
         jQuery('.splide__arrow.splide__arrow--prev').hide();
@@ -266,6 +276,8 @@ jQuery(document).ready(function() {
             jQuery('.splide__arrow.splide__arrow--next').show();
         }
     });
+
+    jQuery(document).find('.divider:last-child').remove();
 
     /* ------------------------------------------------------------------------ */
     /* Dropdown Search Menu

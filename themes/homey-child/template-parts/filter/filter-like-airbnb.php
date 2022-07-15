@@ -5,19 +5,20 @@
     // echo "<pre>";
     // print_r( get_term_meta(62) );
     // print_r( wp_get_attachment_image_url(get_term_meta(62)['homey_taxonomy_img'][0]) );
-    
+
     $tax = 'listing_type';
     $terms = get_terms($tax, array('parent' => 0));
     if (!is_wp_error($terms)) {
         $count = count($terms);
         if ($count > 0) {
 
-        //echo '<a href="' . esc_url( get_term_link( $terms[0]->slug, $terms[0]->taxonomy ) ). '">' . esc_attr( $terms[0]->name ) . '</a>';
-    
+            //echo '<a href="' . esc_url( get_term_link( $terms[0]->slug, $terms[0]->taxonomy ) ). '">' . esc_attr( $terms[0]->name ) . '</a>';
+
     ?>
 
-    <!-- <section class="custom-filter-section search-wrap hidden-sm hidden-xs">
-        <form class="clearfix custom-filter-form" action="<?php // echo homey_get_search_result_page(); ?>" method="GET">
+            <!-- <section class="custom-filter-section search-wrap hidden-sm hidden-xs">
+        <form class="clearfix custom-filter-form" action="<?php // echo homey_get_search_result_page(); 
+                                                            ?>" method="GET">
             <div class="search-filters">
                 <button type="button" class="btn btn-grey-outlined search-filter-btn custom-btn-btn">
                     <span class="custom-btn-text">
@@ -27,32 +28,41 @@
                     
                 </button>
             </div>
-            <?php // get_template_part ('template-parts/search/search-filter-full-width');  ?>
+            <?php // get_template_part ('template-parts/search/search-filter-full-width');  
+            ?>
         </form>
     </section> -->
 
-    <section class="splide" aria-labelledby="carousel-heading">
-        <div class="splide__track">
-            <ul class="splide__list">
+            <section class="splide-test" aria-labelledby="carousel-heading">
+
+                <div class="dropdown categories-menu">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="categoriesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Categories
+                        <span class="caret"></span>
+                    </button>
+                    
+                
+                    <ul class="dropdown-menu categories-menu-container">
+                        <?php
+                        foreach ($terms as $term) {
+                        ?>
+                            <li class="splide__slide">
+                                <a href="<?php echo esc_url(get_term_link($term->slug, $term->taxonomy)); ?>">
+                                    <div class="splide__slide__container">
+                                        <img src="<?php echo wp_get_attachment_image_url(get_term_meta($term->term_id)['homey_taxonomy_icon'][0]); ?>" alt="">
+                                    </div>
+                                    <div class="splide__slide__label">
+                                        <span><?php echo esc_attr($term->name); ?></span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li role="separator" class="divider"></li>
                 <?php
-                foreach ($terms as $term){
+                        }
+                    }
+                }
                 ?>
-                <li class="splide__slide">
-                    <a href="<?php echo esc_url( get_term_link( $term->slug, $term->taxonomy ) ); ?>">
-                        <div class="splide__slide__container">
-                            <img src="<?php echo wp_get_attachment_image_url( get_term_meta( $term->term_id )['homey_taxonomy_icon'][0] ); ?>" alt="">
-                        </div>
-                        <div class="splide__slide__label">
-                            <span><?php echo esc_attr( $term->name ); ?></span>
-                        </div>
-                    </a>
-                </li>
-                <?php 
-                } 
-            }
-        }
-            ?>
-            </ul>
-        </div>
-    </section>
+                    </ul>
+                </div>
+            </section>
 </div>
