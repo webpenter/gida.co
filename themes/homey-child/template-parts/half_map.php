@@ -12,6 +12,8 @@ if($search_layout == 'grid') {
 }
 ?>
 
+<?php get_template_part('template-parts/search/search-half-map'); ?>
+
 <section class="half-map-wrap map-on-left clearfix">
         
     <div class="half-map-right-wrap">
@@ -27,7 +29,7 @@ if($search_layout == 'grid') {
     </div><!-- .half-map-right-wrap -->
 
     <div class="half-map-left-wrap">
-        <?php get_template_part('template-parts/search/search-half-map'); ?>
+        <?php // get_template_part('template-parts/search/search-half-map'); ?>
         <?php get_template_part('template-parts/listing/sort-tool_2'); ?>
 
         <div id="homey_halfmap_listings_container" class="listing-wrap item-<?php echo esc_attr($search_layout);?>-view <?php echo esc_attr($match_height_class); ?>">
