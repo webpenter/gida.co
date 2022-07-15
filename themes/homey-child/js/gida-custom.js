@@ -277,6 +277,8 @@ jQuery(document).ready(function() {
         }
     });
 
+    jQuery(document).find('.divider:last-child').remove();
+
     /* ------------------------------------------------------------------------ */
     /* Dropdown Search Menu
     /* ------------------------------------------------------------------------ */
