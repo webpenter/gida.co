@@ -545,6 +545,7 @@
         height: 30px !important;
         padding: 10px 0 10px 8px !important;
         border-radius: 10px;
+        font-size: 12px !important;
     }
 
     #overlay-search-advanced-module .search-guests::after,
@@ -581,5 +582,18 @@
 
     #overlay-search-advanced-module .search-banner .search-guests .on-focus {
         padding: 0 0 0 30px !important;
+    }
+
+    .categories-menu {
+        top: 77px;
+        right: 16%;
+        left: auto;
+    }
+
+    .categories-menu #categoriesMenu {
+        box-shadow: none;
+        line-height: 35px;
+        padding: 0 11px;
+        border-color: #dddddd;
     }
 }
