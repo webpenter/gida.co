@@ -70,9 +70,9 @@ $total_fields = $total_fields - 1;
 
                     <div class="airbnb-container">
                         <div class="airbnb-button-group-container">
-                            <div id="airbnb-anywhere" class="airbnb-button border-right text-bold">Anywhere</div>
-                            <div id="airbnb-anyweek" class="airbnb-button border-right text-bold">Any week</div>
-                            <div id="airbnb-addguest" class="airbnb-button border-right text-bold">Add Guests</div>
+                            <div id="airbnb-anywhere" class="airbnb-button airbnb-button-half-map-where border-right text-bold"><?php echo !empty($listing_city_pre) ? $listing_city_pre : 'Anywhere'; ?></div>
+                            <div id="airbnb-anyweek" class="airbnb-button airbnb-button-half-map-week border-right text-bold"><?php echo !empty($arrive) ? ( date('M d', strtotime($arrive)) .'-'. date('M d', strtotime($depart)) ) : 'Any week'; ?></div>
+                            <div id="airbnb-addguest" class="airbnb-button airbnb-button-half-map-guest border-right text-bold"><?php echo !empty($guest) ? ( $guest . ' Guests' ) : 'Add Guests'; ?></div>
 
                             <div id="airbnb-filter" class="airbnb-button text-bold">
                                 <span class="custom-btn-text">

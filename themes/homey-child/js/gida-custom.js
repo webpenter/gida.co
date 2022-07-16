@@ -358,4 +358,48 @@ jQuery(document).ready(function() {
             jQuery('.search-type .btn-group .btn span:not(:first)').text()
         )
     })
+
+    // on change city on search result
+    jQuery('.airbnb-main-container .search-fields .search-destination .btn-group select.selectpicker').change(function() {
+        jQuery('.airbnb-button-half-map-where').html(
+            jQuery('.search-destination .btn-group .btn span:first').text()
+        )
+    })
+
+    // on change type on search result
+    jQuery('.airbnb-main-container .search-fields .search-guests input').focus(function() {
+        let arrive = jQuery('.search-date-range input[name=arrive]').val()
+        let depart = jQuery('.search-date-range input[name=depart]').val()
+        jQuery('.airbnb-button-half-map-week').html(
+            moment(arrive).format("MMM D") + '-' + moment(depart).format("MMM D")
+        )
+    })
+
+    // on change type on search result
+    jQuery('.airbnb-main-container .search-fields .search-guests .search-guests-wrap .guest-apply-btn button').click(function() {
+        let guests = jQuery('.search-fields .search-guests input').val()
+        jQuery('.airbnb-button-half-map-guest').html(
+            guests + ' Guests'
+        )
+    })
+
+    jQuery('.half-map-search-buttons button').click(function() {
+        jQuery('.search-fields').removeClass('search-fields-animation');
+        jQuery('.search-fields').hide(10);
+        jQuery('.airbnb-container').show(10);
+        jQuery('#homey-main-search').css({"height": "0px", "z-index": "999"});
+        jQuery(document).find('.half-map-search').css({"height": "0px"});
+        jQuery('.airbnb-main-container').css({"top": "-76px"});
+        jQuery('.header-nav').css({"border-bottom": "1px solid #d8dce1"});
+
+        if( open_close_filter == 1 ) {
+            jQuery(document).find('#homey-main-search').find('.airbnb-main-container .search-filters button').click();
+            open_close_filter = 0;
+        }
+    })
+
+    // airbnb search button
+    jQuery('.airbnb-main-container .airbnb-container .airbnb-search-button').click(function() {
+        jQuery('.airbnb-main-container .search-button button').click()
+    })
 });
